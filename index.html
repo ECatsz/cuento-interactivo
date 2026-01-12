@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbazul · Cuento interactivo</title>
+
+  <!-- Google Font: Sour Gummy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <header class="app-header">
+  <!-- Home: barco + nombre (UN SOLO enlace a home en el header) -->
+  <button id="homeLink" class="brand-link" aria-label="Ir a Home">
+    <span class="brand-icon" aria-hidden="true">
+      <!-- Pirate ship icon (rounded-ish) -->
+      <svg viewBox="0 0 24 24">
+        <path d="M4 18h16" />
+        <path d="M6 18c1.2 1.6 3.2 2.5 6 2.5s4.8-.9 6-2.5" />
+        <path d="M11 4v14" />
+        <path d="M11 5c4 1.5 6.5 4.2 7.5 7.5H11z" />
+        <path d="M11 7c-2 .8-3.6 2-4.8 3.6" />
+        <path d="M7 12.2c.7.4 1.4.6 2.2.6" />
+      </svg>
+    </span>
+    <span class="brand-name">Cuentos interactivos</span>
+  </button>
+
+  <!-- Desktop: links visibles -->
+  <nav class="nav-links" aria-label="Menú principal">
+    <button id="navBookmark" class="nav-link" type="button">Marcapáginas</button>
+    <button id="navSave" class="nav-link" type="button">Guardar página</button>
+    <button id="navClear" class="nav-link" type="button">Eliminar marcapáginas</button>
+  </nav>
+
+  <!-- Tablet/Móvil: hamburguesa + dropdown -->
+  <div class="menu-wrap">
+    <button id="btnMenu" class="icon-btn" aria-label="Menú" aria-expanded="false" aria-controls="menuDropdown">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 7h14"></path>
+        <path d="M5 12h14"></path>
+        <path d="M5 17h14"></path>
+      </svg>
+    </button>
+
+    <div id="menuDropdown" class="menu-dropdown" role="menu" hidden>
+      <!-- En móvil sí dejamos Home aquí, pero NO hay segundo home en el header -->
+      <button id="menuBookmark" class="menu-item" role="menuitem">Marcapáginas</button>
+      <button id="menuSave" class="menu-item" role="menuitem">Guardar página</button>
+      <button id="menuClear" class="menu-item" role="menuitem">Eliminar marcapáginas</button>
+      <div class="menu-divider" aria-hidden="true"></div>
+      <div class="menu-hint" id="menuHint"></div>
+    </div>
+  </div>
+</header>
+
+  <main id="app" class="app" aria-live="polite"></main>
+
+  <!-- Toast / Pop-up -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
